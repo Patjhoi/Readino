@@ -1,8 +1,3 @@
-from html.entities import name2codepoint
-from tkinter import X
-from unicodedata import name
-
-
 f = open('Write.ino', 'r')
 pos = (('int', 'float', 'byte', 'bool', 'constante'),
        '\t\t\t\t\t Se declara la funcion',
