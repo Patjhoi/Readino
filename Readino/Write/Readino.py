@@ -14,105 +14,118 @@ while(True):
     line=f.readline()
     if('int' in line):
         p = line.rstrip('\n')
-        print(p,"\t\t\t\t\t Se declara una variable de tipo", pos[0][0], "con el nombre: ", end="")
+        print(p,"\t\t\t\t Se declara una variable de tipo", pos[0][0], "con el nombre: ", end="")
         p = p.replace(" ","")
         p = p.replace('int', '')
         name = []
         for var in p:
-            if (var.isalpha()) | (var == '_'):
+            if (var.isalpha()) | (var == '_') | (var.isnumeric()):
                 name.append(var)
-                print(var, end = "")
             else:
-                print("")
                 break
         name = str(name)
         transTable = name.maketrans("", "", "'[], ")
         name = name.translate(transTable)
-        # print(name)
-        
-        # p = p.replace('=', '')
-        # print(p)
-        # for dig in p:
-        #     print(dig)
-        #     if (dig.isnumeric()):
-        #         print(dig, end=" ") 
-        #     else:
-        #         print("")
-        #         break
+        if name.isidentifier():
+            print(name, end=" ->  ")
+            dig = p.replace(name, '')
+            transTable = dig.maketrans("", "", " =;")
+            dig = dig.translate(transTable)
+            print(dig)
+        else:
+            print("")
 
     elif('float' in line):
         p = line.rstrip('\n')
-        print(p,"\t\t\t\t\t Se declara una variable de tipo", pos[0][1], "con el nombre: ", end="")
+        print(p,"\t\t\t\t Se declara una variable de tipo", pos[0][1], "con el nombre: ", end="")
         p = p.replace(" ","")
         p = p.replace('float', '')
         name = []
         for var in p:
-            if (var.isalpha()) | (var == '_'):
+            if (var.isalpha()) | (var == '_') | (var.isnumeric()):
                 name.append(var)
-                print(var, end = "")
             else:
-                print("")
                 break
         name = str(name)
         transTable = name.maketrans("", "", "'[], ")
         name = name.translate(transTable)
-        # print(name)
+        if name.isidentifier():
+            print(name, end=" -> ")
+            dig = p.replace(name, '')
+            transTable = dig.maketrans("", "", " =;")
+            dig = dig.translate(transTable)
+            print(dig)
+        else:
+            print("")
 
     elif('byte' in line):
         p = line.rstrip('\n')
-        print(p,"\t\t\t\t\t Se declara una variable de tipo", pos[0][2], "con el nombre: ", end="")
+        print(p,"\t\t\t\t Se declara una variable de tipo", pos[0][2], "con el nombre: ", end="")
         p = p.replace(" ","")
         p = p.replace('byte', '')
         name = []
         for var in p:
-            if (var.isalpha()) | (var == '_'):
+            if (var.isalpha()) | (var == '_') | (var.isnumeric()):
                 name.append(var)
-                print(var, end = "")
             else:
-                print("")
                 break
         name = str(name)
         transTable = name.maketrans("", "", "'[], ")
         name = name.translate(transTable)
-        # print(name)
+        if name.isidentifier():
+            print(name, end=" -> ")
+            dig = p.replace(name, '')
+            transTable = dig.maketrans("", "", " =;")
+            dig = dig.translate(transTable)
+            print(dig)
+        else:
+            print("")
 
     elif('bool' in line):
         p = line.rstrip('\n')
-        print(p,"\t\t\t\t\t Se declara una variable de tipo", pos[0][3], "con el nombre: ", end="")
+        print(p,"\t\t\t\t Se declara una variable de tipo", pos[0][3], "con el nombre: ", end="")
         p = p.replace(" ","")
         p = p.replace('bool', '')
         name = []
         for var in p:
-            if (var.isalpha()) | (var == '_'):
+            if (var.isalpha()) | (var == '_') | (var.isnumeric()):
                 name.append(var)
-                print(var, end = "")
             else:
-                print("")
                 break
         name = str(name)
         transTable = name.maketrans("", "", "'[], ")
         name = name.translate(transTable)
-        # print(name)
+        if name.isidentifier():
+            print(name, end=" -> ")
+            dig = p.replace(name, '')
+            transTable = dig.maketrans("", "", " =;")
+            dig = dig.translate(transTable)
+            print(dig)
+        else:
+            print("")
 
     elif('#DEFINE' in line):
         p = line.rstrip('\n')
-        print(p,"\t\t\t\t\t Se declara una variable de tipo", pos[0][4], "con el nombre: ", end="")
+        print(p,"\t\t\t\t Se declara una variable de tipo", pos[0][4], "con el nombre: ", end="")
         p = p.replace(" ","")
         p = p.replace('#DEFINE', '')
         name = []
         for var in p:
-            if (var.isalpha()) | (var == '_'):
+            if (var.isalpha()) | (var == '_') | (var.isnumeric()):
                 name.append(var)
-                print(var, end = "")
             else:
-                print("")
                 break
         name = str(name)
         transTable = name.maketrans("", "", "'[], ")
         name = name.translate(transTable)
-        # print(name)
-
-
+        if name.isidentifier():
+            print(name, end=" -> ")
+            dig = p.replace(name, '')
+            transTable = dig.maketrans("", "", " =;")
+            dig = dig.translate(transTable)
+            print(dig)
+        else:
+            print("")
         
     elif('void setup' in line):
         print(line.rstrip('\n'), pos[1])
